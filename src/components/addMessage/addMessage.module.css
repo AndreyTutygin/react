@@ -1,12 +1,8 @@
-.posts {
-    margin-top: 20px;
-}
-
-.posts__addMessage {
+.addMessage {
     display: flex;
     flex-direction: column;
-    width: 50%;
     align-items: flex-end;
+    width: 100%;
 }
 
 .addMessage__field {

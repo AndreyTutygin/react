@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './posts.module.css';
+import style from './addMessage.module.css';
 
 
 const AddMessage = (props) => {

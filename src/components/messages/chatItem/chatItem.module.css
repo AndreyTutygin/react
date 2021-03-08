@@ -1,0 +1,38 @@
+.chat__item {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.chat__item:not(:first-child) {
+    margin-top: 30px;
+}
+
+.chat__item:nth-child(2n) .chat__pers {
+    order: 1;
+}
+
+.chat__pers {
+    text-align: center;
+}
+
+.chat__ava {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.chat__name {
+    margin: 0;
+    padding: 0;
+}
+
+.chat__txt {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0;
+    padding: 10px 20px;
+}

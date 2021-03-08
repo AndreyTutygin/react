@@ -1,47 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import AddMessageContainer from '../addMessage/addMessageContainer';
+import ChatItem from './chatItem/chatItem';
 import style from './messages.module.css';
-
-const Name__Link = (props) => {
-    let path = `/messages/${props.id}`;
-
-    return (
-        <li className={style.names__item}>
-            <NavLink to={path} className={style.names__link}>
-                <div className={style.names__ava} style={{backgroundImage: `url(${props.ava})`}}></div>
-                <span className={style.name__txt}>{props.name}</span>
-            </NavLink>
-        </li>
-    );
-}
-
-const Chat__item = (props) => {
-    return (
-        <div className={style.chat__item}>
-            <div className={style.chat__pers}>
-                <div className={style.chat__ava} style={{backgroundImage: `url(${props.ava})`}}></div>
-                <p className={style.chat__name}>{props.name}</p>
-            </div>
-            <p className={style.chat__txt}>{props.message}</p>
-        </div>
-    );
-}
-
+import NameLink from './nameLink/nameLink';
 
 const Messages = (props) => {
-    const nameEl = props.namesData.map( i => <Name__Link name={i.name} id={i.id} key={i.id} ava={i.ava} /> )
-    const chatEl = props.chatData.map( i => <Chat__item ava={i.ava} name={i.name} key={i.id} message={i.message}/> )
-
-    let newPostEl = React.createRef();
-
-    let onAddMessage = () => {
-        props.onAddMessage();
-    };
-
-    let onPostChange = () => {
-        let messageTxt = newPostEl.current.value;
-        props.onPostChange(messageTxt);
-    };
+    const nameEl = props.namesData.map( i => <NameLink name={i.name} id={i.id} key={i.id} ava={i.ava} /> )
+    const chatEl = props.chatData.map( i => <ChatItem ava={i.ava} name={i.name} key={i.id} message={i.message}/> )
 
     return (
         <section className={style.messages}>
@@ -55,10 +20,8 @@ const Messages = (props) => {
                     </div>
                     <div className={style.chat}>
                         {chatEl}
-                        <div className={style.addMessage, style.messages__addMessage}>
-                            <textarea onChange={onPostChange} ref={newPostEl} className={style.addMessage__field} 
-                                value={props.valueTxt}/>
-                            <button onClick={onAddMessage} className={style.btn}>Отправить</button>
+                        <div className={style.messages__addMessage}>
+                            <AddMessageContainer className='messages__addMessage' btnTxt='Отправить'/>
                         </div>
                     </div>
                 </div>
