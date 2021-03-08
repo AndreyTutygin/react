@@ -1,0 +1,27 @@
+.user {
+    display: flex;
+}
+
+.user__ava {
+    width: 200px;
+    height: 200px;
+    background-image: url('https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.user__desc {
+    margin-left: 30px;
+}
+
+.user__fio {
+    margin: 0;
+    padding: 0;
+}
+
+.user__list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style-type: none;
+}
