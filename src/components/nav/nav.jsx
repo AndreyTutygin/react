@@ -12,7 +12,7 @@ const Nav = () => {
                     <NavLink to='/messages' className={style.nav__link}>Сообщения</NavLink>
                 </li>
                 <li className={style.nav__item}>
-                    <NavLink to='/friends' className={style.nav__link}>Друзья</NavLink>
+                    <NavLink to='/users' className={style.nav__link}>Друзья</NavLink>
                 </li>
                 <li className={style.nav__item}>
                     <NavLink to='/news' className={style.nav__link}>Новости</NavLink>

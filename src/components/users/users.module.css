@@ -48,6 +48,7 @@
 }
 
 .user__ava {
+    max-width: 100%;
     width: 100%;
 }
 

@@ -19,7 +19,7 @@ const App = (props) => {
                         render={ () => <MessagesContainer/> } />
                     <Route exact path='/profile' 
                         render={ () => <Profile/> } />
-                    <Route exact path='/friends' 
+                    <Route exact path='/users' 
                         render={ () => <UsersContainer/> } />
                     <Route exact path='/news' 
                         render={ () => <News/> } />
