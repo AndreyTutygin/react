@@ -1,4 +1,5 @@
 import React from 'react';
+import Preloader from '../common/Preloader/Preloader';
 import style from './users.module.css'
 
 const Users = (props) => {
@@ -12,6 +13,7 @@ const Users = (props) => {
             <section className={style.users}>
                 <div className={style.container}>
                     <h2 className={style.users__title}>Друзья</h2>
+                    {props.isFetching ? <Preloader/> : null}
                     <div className={style.pages}>
                         {pages.map(i => {
                             return <span className={`${style.page} ${props.currentPage === i && style.page_selected}`} 
