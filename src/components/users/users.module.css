@@ -1,0 +1,70 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.users__title {
+    margin: 0;
+    padding: 0;
+}
+
+.pages {
+    margin: 50px 0 10px;
+}
+
+.page:not(:first-child) {
+    margin-left: 10px;
+}
+
+.page {
+    cursor: pointer;
+}
+
+.page_selected {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.users__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.user {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+}
+
+.user__desc {
+    color: #000;
+    text-decoration: none;
+}
+
+.user__name {
+    margin-top: 10px;
+}
+
+.user__ava {
+    width: 100%;
+}
+
+.follow {
+    display: block;
+    border: 2px solid forestgreen;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: forestgreen;
+    color: #fff;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.follow:hover {
+    background-color: #fff;
+    color: forestgreen;
+}

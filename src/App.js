@@ -5,7 +5,7 @@ import Nav from './components/nav/nav';
 import MessagesContainer from './components/messages/messagesContainer';
 import News from './components/news/news';
 import {BrowserRouter, Route} from 'react-router-dom';
-import Friends from './components/friends/friends';
+import UsersContainer from './components/users/usersContainer';
 
 
 const App = (props) => {
@@ -20,7 +20,7 @@ const App = (props) => {
                     <Route exact path='/profile' 
                         render={ () => <Profile/> } />
                     <Route exact path='/friends' 
-                        render={ () => <Friends/> } />
+                        render={ () => <UsersContainer/> } />
                     <Route exact path='/news' 
                         render={ () => <News/> } />
                 </main>
