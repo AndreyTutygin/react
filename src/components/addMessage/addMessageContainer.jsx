@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AddMessage from './addMessage';
-import { addPostActionCreator, onPostChangeActionCreator } from './../../redux/profileReducer';
-import { addChatActionCreator, onChatChangeActionCreator } from './../../redux/messageReducer';
+import { addPost, onPostChange } from './../../redux/profileReducer';
+import { addChat, onChatChange } from './../../redux/messageReducer';
 
 
 let mapStateToProps = (state, props) => {
@@ -19,23 +19,9 @@ let mapStateToProps = (state, props) => {
 
 let mapDispatchToProps = (dispatch, props) => {
     if ( props.className.includes('posts') ) {
-        return {
-            onAddMessage: () => {
-                dispatch(addPostActionCreator());
-            },
-            onPostChange: (messageTxt) => {
-                dispatch(onPostChangeActionCreator(messageTxt));
-            }
-        };
+        return { addPost, onPostChange };
     } else if ( props.className.includes('messages') ) {
-        return {
-            onAddMessage: () => {
-                dispatch(addChatActionCreator());
-            },
-            onPostChange: (messageTxt) => {
-                dispatch(onChatChangeActionCreator(messageTxt));
-            }
-        };
+        return { addChat, onChatChange };
     }
 };
 
