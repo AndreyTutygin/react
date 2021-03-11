@@ -70,11 +70,11 @@ const messageReducer = (state = initialState, action) => {
     }
 };
 
-export const addChat = () => ({
+export const addChatActionCreator = () => ({
     type: ADD_CHAT
 });
 
-export const onChatChange = (messagetxt) => ({
+export const onChatChangeActionCreator = (messagetxt) => ({
     type: UPDATE_NEW_CHAT_TEXT,
     newText: messagetxt
 });

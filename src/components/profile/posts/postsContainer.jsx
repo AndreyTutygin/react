@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Posts from './posts';
+import Posts from './Posts';
 
 let mapStateToProps = (state) => {
     return {
@@ -8,6 +8,6 @@ let mapStateToProps = (state) => {
     }
 };
 
-const postsContainer = connect(mapStateToProps)(Posts);
+const PostsContainer = connect(mapStateToProps)(Posts);
 
-export default postsContainer;
+export default PostsContainer;

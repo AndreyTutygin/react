@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './addMessage.module.css';
+import styles from './AddMessage.module.css';
 
 
 const AddMessage = (props) => {
@@ -15,10 +15,10 @@ const AddMessage = (props) => {
     };
 
     return (
-        <div className={style.addMessage}>
-            <textarea onChange={onPostChange} ref={newPostEl} className={style.addMessage__field} 
+        <div className={styles.addMessage}>
+            <textarea onChange={onPostChange} ref={newPostEl} className={styles.addMessage__field} 
                 value={props.valueTxt}/>
-            <button onClick={onAddMessage} className={style.btn}>{props.btnTxt}</button>
+            <button onClick={onAddMessage} className={styles.btn}>{props.btnTxt}</button>
         </div>
     )
 };

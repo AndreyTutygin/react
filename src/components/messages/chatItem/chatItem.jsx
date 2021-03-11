@@ -1,14 +1,14 @@
 import React from 'react';
-import style from './chatItem.module.css';
+import styles from './ChatItem.module.css';
 
 const ChatItem = (props) => {
     return (
-        <div className={style.chat__item}>
-            <div className={style.chat__pers}>
-                <div className={style.chat__ava} style={{backgroundImage: `url(${props.ava})`}}></div>
-                <p className={style.chat__name}>{props.name}</p>
+        <div className={styles.chat__item}>
+            <div className={styles.chat__pers}>
+                <div className={styles.chat__ava} style={{backgroundImage: `url(${props.ava})`}}></div>
+                <p className={styles.chat__name}>{props.name}</p>
             </div>
-            <p className={style.chat__txt}>{props.message}</p>
+            <p className={styles.chat__txt}>{props.message}</p>
         </div>
     );
 }

@@ -29,17 +29,23 @@
 
 .users__list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
     gap: 30px;
 }
 
 .user {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 165px;
     color: #000;
     text-decoration: none;
 }
 
 .user__desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: #000;
     text-decoration: none;
 }
