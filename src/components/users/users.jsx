@@ -24,7 +24,7 @@ const Users = (props) => {
                     </div>
                     <div className={styles.users__list}>
                         {props.users.map(i => <div className={styles.user} key={i.id}>
-                            <NavLink to={`/profile/2`} className={styles.user__desc}>
+                            <NavLink to={`/profile/${i.id}`} className={styles.user__desc}>
                                 <img className={styles.user__ava} src={i.photos.small != null ? i.photos.small : userImg} />
                                 <p className={styles.user__name}>{i.name}</p>
                                 <p className={styles.user__status}>{i.status}</p>

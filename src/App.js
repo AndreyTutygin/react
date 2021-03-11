@@ -17,7 +17,7 @@ const App = (props) => {
                 <main className='main'>
                     <Route exact path='/messages' 
                         render={ () => <MessagesContainer/> } />
-                    <Route path='/profile' 
+                    <Route path='/profile/:userId?' 
                         render={ () => <ProfileContainer/> } />
                     <Route exact path='/users' 
                         render={ () => <UsersContainer/> } />
