@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header/Header';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import Nav from './components/Nav/Nav';
 import MessagesContainer from './components/Messages/MessagesContainer';
 import News from './components/News/News';
@@ -17,8 +17,8 @@ const App = (props) => {
                 <main className='main'>
                     <Route exact path='/messages' 
                         render={ () => <MessagesContainer/> } />
-                    <Route exact path='/profile' 
-                        render={ () => <Profile/> } />
+                    <Route path='/profile' 
+                        render={ () => <ProfileContainer/> } />
                     <Route exact path='/users' 
                         render={ () => <UsersContainer/> } />
                     <Route exact path='/news' 

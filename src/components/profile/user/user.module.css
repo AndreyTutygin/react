@@ -1,5 +1,14 @@
+ul {
+    list-style-type: none;
+}
+
 .user {
     display: flex;
+}
+
+.user__span {
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .user__ava {
