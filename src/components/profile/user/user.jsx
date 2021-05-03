@@ -16,7 +16,7 @@ const User = (props) => {
                 </h2>
                 <ul className={styles.user__list}>
                     <li className={styles.user__item}><span className={styles.user__span}>Статус:</span> {props.profileData.aboutMe}</li>
-                    <li className={styles.user__item}><span className={styles.user__span}>Ищешь работу:</span> {props.profileData.lookingForAJob === true ? 'Да' : 'Нет'}</li>
+                    <li className={styles.user__item}><span className={styles.user__span}>Ищешь работу:</span> {props.profileData.lookingForAJob ? 'Да' : 'Нет'}</li>
                     <li className={styles.user__item}><span className={styles.user__span}>О поиске работы:</span> {props.profileData.lookingForAJobDescription}</li>
                     <ul className={styles.user__contacts}>
                         <li><span className={styles.user__span}>Контакты:</span></li>

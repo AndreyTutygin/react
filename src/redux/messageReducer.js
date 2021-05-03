@@ -45,11 +45,6 @@ let initialState = {
 
 const messageReducer = (state = initialState, action) => {
 
-    let stateCopy = {
-        ...state,
-        chatData: [...state.chatData]
-    };
-
     switch(action.type) {
         case ADD_CHAT: 
             let newMessage = {
@@ -57,13 +52,18 @@ const messageReducer = (state = initialState, action) => {
                 name: 'Я',
                 message: state.newMessageTxt,
             };
-            stateCopy.chatData.push(newMessage);
-            stateCopy.newMessageTxt = '';
-            return stateCopy;
+
+            return {
+                ...state,
+                chatData: [...state.chatData, newMessage],
+                newMessageTxt: '',
+            };
 
         case UPDATE_NEW_CHAT_TEXT: 
-            stateCopy.newMessageTxt = action.newText;
-            return stateCopy;
+            return {
+                ...state,
+                newMessageTxt: action.newText,
+            };
 
         default:
             return state;
