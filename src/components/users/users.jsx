@@ -34,17 +34,19 @@ const Users = (props) => {
                                 <p className={styles.user__city}>Город: {'i.location.city'}</p>
                             </NavLink>
                             { i.followed 
-                                ? <button className={styles.follow} onClick={ () => {
-
+                                ? <button disabled={props.followingInProgress.some(id => id === i.id)} className={styles.follow} onClick={ () => {
+                                        props.toggleIsFollowingProgress(true, i.id);
                                         followAPI.unFollow(i.id).then(data => {
                                             if (data.resultCode === 0) props.unFollow(i.id);
+                                            props.toggleIsFollowingProgress(false, i.id);
                                         })
 
                                     } }>Удалить</button> 
-                                : <button className={styles.follow} onClick={ () => {
-
+                                : <button disabled={props.followingInProgress.some(id => id === i.id)} className={styles.follow} onClick={ () => {
+                                        props.toggleIsFollowingProgress(true, i.id);
                                         followAPI.follow(i.id).then(data => {
                                             if (data.resultCode === 0) props.follow(i.id);
+                                            props.toggleIsFollowingProgress(false, i.id);
                                         })
 
                                     } }>Добавить</button> }
