@@ -3,8 +3,6 @@ import Preloader from '../common/Preloader/Preloader';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import userImg from './../../assets/images/user.png';
 import styles from './Users.module.css';
-import axios from 'axios';
-import { followAPI } from '../../api/api';
 
 const Users = (props) => {
         let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -34,22 +32,10 @@ const Users = (props) => {
                                 <p className={styles.user__city}>Город: {'i.location.city'}</p>
                             </NavLink>
                             { i.followed 
-                                ? <button disabled={props.followingInProgress.some(id => id === i.id)} className={styles.follow} onClick={ () => {
-                                        props.toggleIsFollowingProgress(true, i.id);
-                                        followAPI.unFollow(i.id).then(data => {
-                                            if (data.resultCode === 0) props.unFollow(i.id);
-                                            props.toggleIsFollowingProgress(false, i.id);
-                                        })
-
-                                    } }>Удалить</button> 
-                                : <button disabled={props.followingInProgress.some(id => id === i.id)} className={styles.follow} onClick={ () => {
-                                        props.toggleIsFollowingProgress(true, i.id);
-                                        followAPI.follow(i.id).then(data => {
-                                            if (data.resultCode === 0) props.follow(i.id);
-                                            props.toggleIsFollowingProgress(false, i.id);
-                                        })
-
-                                    } }>Добавить</button> }
+                                ? <button disabled={props.followingInProgress.some(id => id === i.id)} className={styles.follow} 
+                                onClick={ () => {props.unFollow(i.id);} }>Удалить</button> 
+                                : <button disabled={props.followingInProgress.some(id => id === i.id)} className={styles.follow} 
+                                onClick={ () => {props.follow(i.id);} }>Добавить</button> }
                         </div>)}
                     </div>
                 </div>

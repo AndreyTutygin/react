@@ -1,3 +1,5 @@
+import { authAPI } from "../api/api";
+
 const SET_USER_DATA = 'SET_USER_DATA';
 const SET_USER_PHOTO = 'SET_USER_PHOTO';
 
@@ -41,5 +43,17 @@ export const setUserPhoto = (photo) => ({
     photo
 });
 
+export const auth = () => (dispatch) => {
+    authAPI.auth().then(data => {
+        if (data.resultCode === 0) {
+            let {id, email, login} = data.data;
+            dispatch(setAuthUserData(id, email, login));
+
+            authAPI.getId().then(data => {
+                dispatch(setUserPhoto(data.photos.large));
+            })
+        }
+    })
+}
 
 export default authReducer;

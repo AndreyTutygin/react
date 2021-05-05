@@ -1,22 +1,11 @@
-import * as axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import Auth from './Auth';
-import {setAuthUserData, setUserPhoto} from './../../redux/authReducer';
-import { authAPI } from '../../api/api';
+import {setAuthUserData, setUserPhoto, auth} from './../../redux/authReducer';
 
 class AuthContainer extends React.Component {
     componentDidMount() {
-            authAPI.auth().then(data => {
-                if (data.resultCode === 0) {
-                    let {id, email, login} = data.data;
-                    this.props.setAuthUserData(id, email, login);
-
-                    authAPI.getId().then(data => {
-                        this.props.setUserPhoto(data.photos.large);
-                    })
-                }
-            })
+        this.props.auth();
     }
 
     render() {
@@ -33,5 +22,5 @@ const mapStateToProps = (state) => ({
     photo: state.auth.photo
 });
 
-export default connect(mapStateToProps, {setAuthUserData, setUserPhoto})(AuthContainer);
+export default connect(mapStateToProps, {setAuthUserData, setUserPhoto, auth})(AuthContainer);
 

@@ -1,34 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
-import * as axios from 'axios';
 import {follow, 
         unFollow, 
-        setUsers, 
         setCurrentPage, 
-        setTotalUsersCount, 
-        toggleIsFetching,
-        toggleIsFollowingProgress} from '../../redux/usersReducer';
-import { usersAPI } from '../../api/api';
+        getUsers,
+        pageChanged} from '../../redux/usersReducer';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items)
-                this.props.setTotalUsersCount(data.totalCount)
-            })
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(pageNumber, this.props.pageSize)
-        .then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items)
-        })
+        this.props.pageChanged(pageNumber, this.props.pageSize);
     }
 
     render() {
@@ -40,7 +25,6 @@ class UsersContainer extends React.Component {
                         follow={this.props.follow}
                         unFollow={this.props.unFollow}
                         onPageChanged={this.onPageChanged}
-                        toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
                         followingInProgress={this.props.followingInProgress}
                         />
     }
@@ -58,4 +42,4 @@ let mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, 
-    { follow, unFollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleIsFollowingProgress })(UsersContainer);
+    { follow, unFollow, setCurrentPage, getUsers, pageChanged })(UsersContainer);
