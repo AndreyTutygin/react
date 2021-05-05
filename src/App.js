@@ -6,6 +6,7 @@ import MessagesContainer from './components/Messages/MessagesContainer';
 import News from './components/News/News';
 import {BrowserRouter, Route} from 'react-router-dom';
 import UsersContainer from './components/Users/UsersContainer';
+import Login from './components/Login/Login';
 
 
 const App = (props) => {
@@ -15,6 +16,8 @@ const App = (props) => {
                 <Header/>
                 <Nav/>
                 <main className='main'>
+                    <Route exact path='/login' 
+                        render={ () => <Login/> } />
                     <Route exact path='/messages' 
                         render={ () => <MessagesContainer/> } />
                     <Route path='/profile/:userId?' 
