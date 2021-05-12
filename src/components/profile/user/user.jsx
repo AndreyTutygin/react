@@ -1,6 +1,7 @@
 import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import styles from './User.module.css';
+import UserStatus from './UserStatus';
 
 const User = (props) => {
     if (!props.profileData) {
@@ -15,7 +16,9 @@ const User = (props) => {
                     <span className={styles.user__fullName}>{props.profileData.fullName}</span>
                 </h2>
                 <ul className={styles.user__list}>
-                    <li className={styles.user__item}><span className={styles.user__span}>Статус:</span> {props.profileData.aboutMe}</li>
+                    <li className={styles.user__item}>
+                        <span className={styles.user__span}>Статус:</span> <UserStatus/>
+                    </li>
                     <li className={styles.user__item}><span className={styles.user__span}>Ищешь работу:</span> {props.profileData.lookingForAJob ? 'Да' : 'Нет'}</li>
                     <li className={styles.user__item}><span className={styles.user__span}>О поиске работы:</span> {props.profileData.lookingForAJobDescription}</li>
                     <ul className={styles.user__contacts}>
