@@ -1,13 +1,27 @@
-.header {
+.form {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    grid-area: h;
-    background-color: brown;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.header__logo {
-    width: 50px;
-    height: 50px;
+.form__item {
+    margin-top: 5px;
 }
+
+.form__btn {
+    margin-top: 10px;
+    border: 2px solid forestgreen;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: forestgreen;
+    color: #fff;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.form__btn:hover {
+    background-color: #fff;
+    color: forestgreen;
+}
+

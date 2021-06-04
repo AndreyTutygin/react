@@ -1,4 +1,3 @@
-const UPDATE_NEW_CHAT_TEXT = 'UPDATE-NEW-CHAT-TEXT';
 const ADD_CHAT = 'ADD-CHAT';
 
 let initialState = {
@@ -40,7 +39,6 @@ let initialState = {
             message: 'Норм'
         },
     ],
-    newMessageTxt: '',
 };
 
 const messageReducer = (state = initialState, action) => {
@@ -50,19 +48,12 @@ const messageReducer = (state = initialState, action) => {
             let newMessage = {
                 ava: 'https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg',
                 name: 'Я',
-                message: state.newMessageTxt,
+                message: action.newMessages,
             };
 
             return {
                 ...state,
                 chatData: [...state.chatData, newMessage],
-                newMessageTxt: '',
-            };
-
-        case UPDATE_NEW_CHAT_TEXT: 
-            return {
-                ...state,
-                newMessageTxt: action.newText,
             };
 
         default:
@@ -70,13 +61,9 @@ const messageReducer = (state = initialState, action) => {
     }
 };
 
-export const addChatActionCreator = () => ({
-    type: ADD_CHAT
-});
-
-export const onChatChangeActionCreator = (messagetxt) => ({
-    type: UPDATE_NEW_CHAT_TEXT,
-    newText: messagetxt
+export const addChat = (newMessages) => ({
+    type: ADD_CHAT,
+    newMessages
 });
 
 export default messageReducer;
