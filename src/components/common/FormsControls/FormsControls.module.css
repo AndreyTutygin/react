@@ -1,0 +1,22 @@
+.addMessageFieldWrap {
+    width: 100%;
+}
+
+.addMessageField {
+    border: 0px solid transparent;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #ccc;
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+.errorField {
+    border: 2px solid red;
+}
+
+.errorSpan {
+    margin-left: 20px;
+    color: red;
+}
