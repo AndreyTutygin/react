@@ -25,3 +25,9 @@
     color: forestgreen;
 }
 
+.form__error {
+    padding: 5px;
+    border: 1px solid red;
+    color: red
+}
+

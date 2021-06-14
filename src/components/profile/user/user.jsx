@@ -1,7 +1,7 @@
 import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import styles from './User.module.css';
-import UserStatus from './UserStatus';
+import UserStatusWithHook from './UserStatusWithHook';
 
 const User = (props) => {
     if (!props.profileData) {
@@ -17,7 +17,7 @@ const User = (props) => {
                 </h2>
                 <ul className={styles.user__list}>
                     <li className={styles.user__item}>
-                        <span className={styles.user__span}>Статус:</span> <UserStatus status={props.status} 
+                        <span className={styles.user__span}>Статус:</span> <UserStatusWithHook status={props.status} 
                         updateStatus={props.updateStatus}/>
                     </li>
                     <li className={styles.user__item}><span className={styles.user__span}>Ищешь работу:</span> {props.profileData.lookingForAJob ? 'Да' : 'Нет'}</li>

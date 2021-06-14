@@ -7,7 +7,11 @@ import authImg from './../../assets/images/user.png';
 const Auth = (props) => {
     return (
         <div className={styles.auth}>
-            { props.isAuth ? <NavLink to={`/profile/${props.id}`}>{props.login}</NavLink>
+            { props.isAuth 
+                ? <div>
+                    <NavLink to={`/profile/${props.id}`}>{props.login}</NavLink>
+                    <button onClick={props.logout}>Выйти</button>
+                </div>
                 : <NavLink to={'/login'}>Login</NavLink> }
             <div className={styles.auth__ava} style={{backgroundImage: `url(${ props.photo === null ? authImg : props.photo})`}}></div>
         </div>

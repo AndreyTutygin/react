@@ -1,12 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Auth from './Auth';
-import {setAuthUserData, setUserPhoto, auth} from './../../redux/authReducer';
+import {setAuthUserData, setUserPhoto, logout} from './../../redux/authReducer';
 
 class AuthContainer extends React.Component {
-    componentDidMount() {
-        this.props.auth();
-    }
 
     render() {
         return (
@@ -22,5 +19,5 @@ const mapStateToProps = (state) => ({
     photo: state.auth.photo
 });
 
-export default connect(mapStateToProps, {setAuthUserData, setUserPhoto, auth})(AuthContainer);
+export default connect(mapStateToProps, {setAuthUserData, setUserPhoto, logout})(AuthContainer);
 
