@@ -1,17 +1,19 @@
 import './App.css';
 import React from 'react';
 import Header from './components/Header/Header';
-import ProfileContainer from './components/Profile/ProfileContainer';
 import Nav from './components/Nav/Nav';
-import MessagesContainer from './components/Messages/MessagesContainer';
-import News from './components/News/News';
 import {BrowserRouter, Route, withRouter} from 'react-router-dom';
-import UsersContainer from './components/Users/UsersContainer';
-import Login from './components/Login/Login';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { initializeApp } from './redux/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
+import { withSuspense } from './hoc/withSuspense';
+
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
+const MessagesContainer = React.lazy(() => import('./components/Messages/MessagesContainer'));
+const News = React.lazy(() => import('./components/News/News'));
+const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
+const Login = React.lazy(() => import('./components/Login/Login'));
 
 
 class App extends React.Component {
@@ -29,15 +31,15 @@ class App extends React.Component {
                     <Nav/>
                     <main className='main'>
                         <Route exact path='/login' 
-                            render={ () => <Login/> } />
+                            render={withSuspense(Login)} />
                         <Route exact path='/messages' 
-                            render={ () => <MessagesContainer/> } />
+                            render={withSuspense(MessagesContainer)} />
                         <Route path='/profile/:userId?' 
-                            render={ () => <ProfileContainer/> } />
+                            render={withSuspense(ProfileContainer)} />
                         <Route exact path='/users' 
-                            render={ () => <UsersContainer/> } />
+                            render={withSuspense(UsersContainer)} />
                         <Route exact path='/news' 
-                            render={ () => <News/> } />
+                            render={withSuspense(News)} />
                     </main>
                 </div>
             </BrowserRouter>
