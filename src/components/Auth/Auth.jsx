@@ -13,7 +13,8 @@ const Auth = (props) => {
                     <button onClick={props.logout}>Выйти</button>
                 </div>
                 : <NavLink to={'/login'}>Login</NavLink> }
-            <div className={styles.auth__ava} style={{backgroundImage: `url(${ props.photo === null ? authImg : props.photo})`}}></div>
+            <div className={styles.auth__ava} 
+            style={{backgroundImage: `url(${authImg})`}}></div>
         </div>
     )
 };

@@ -2,19 +2,27 @@ import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import styles from './User.module.css';
 import UserStatusWithHook from './UserStatusWithHook';
+import defaultUserImg from './../../../assets/images/user.png';
 
 const User = (props) => {
     if (!props.profileData) {
         return <Preloader/>
     }
 
+    const onMainPhotoSelected = (e) => {
+        if (e.target.files.length) {
+            props.savePhoto(e.target.files[0]);
+        }
+    }
+
     return (
         <div className={styles.user}>
-            <div className={styles.user__ava} style={{backgroundImage: `url(${props.profileData.photos.large})`}}></div>
+            <div className={styles.user__ava} style={{backgroundImage: `url(${props.profileData.photos.large || defaultUserImg})`}}></div>
             <div className={styles.user__desc}>
                 <h2 className={styles.user__fio}>
                     <span className={styles.user__fullName}>{props.profileData.fullName}</span>
                 </h2>
+                {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
                 <ul className={styles.user__list}>
                     <li className={styles.user__item}>
                         <span className={styles.user__span}>Статус:</span> <UserStatusWithHook status={props.status} 
