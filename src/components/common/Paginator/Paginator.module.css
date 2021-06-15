@@ -1,0 +1,16 @@
+.pages {
+    margin: 50px 0 10px;
+}
+
+.page:not(:first-child) {
+    margin-left: 10px;
+}
+
+.page {
+    cursor: pointer;
+}
+
+.page_selected {
+    font-weight: bold;
+    font-size: 20px;
+}

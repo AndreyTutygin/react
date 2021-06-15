@@ -3,25 +3,19 @@ import Preloader from '../common/Preloader/Preloader';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import userImg from './../../assets/images/user.png';
 import styles from './Users.module.css';
+import Paginator from '../common/Paginator/Paginator';
 
 const Users = (props) => {
-        let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-        let pages = [];
-        for (let i = 1; i <= pagesCount; i++) {
-            pages.push(i);
-        }
-
         return (
             <section className={styles.users}>
                 <div className={styles.container}>
                     <h2 className={styles.users__title}>Друзья</h2>
                     {props.isFetching ? <Preloader/> : null}
-                    <div className={styles.pages}>
-                        {pages.map(i => {
-                            return <span className={`${styles.page} ${props.currentPage === i && styles.page_selected}`} 
-                            onClick={(e) => {props.onPageChanged(i)}}>{i}</span>
-                        })}
-                    </div>
+                    <Paginator currentPage={props.currentPage} 
+                            onPageChanged={props.onPageChanged}
+                            totalItemCount={props.totalUsersCount}
+                            pageSize={props.pageSize}
+                            />
                     <div className={styles.users__list}>
                         {props.users.map(i => <div className={styles.user} key={i.id}>
                             <NavLink to={`/profile/${i.id}`} className={styles.user__desc}>
