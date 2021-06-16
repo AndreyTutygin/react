@@ -12,6 +12,7 @@ ul {
 }
 
 .user__ava {
+    position: relative;
     width: 200px;
     height: 200px;
     background-image: url('https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg');
@@ -37,4 +38,15 @@ ul {
 
 .userStatus {
     display: inline-block;
+}
+
+.addPhoto {
+    position: absolute;
+    bottom: -30px;
+}
+
+.form__error {
+    padding: 5px;
+    border: 1px solid red;
+    color: red
 }

@@ -6,9 +6,7 @@ import {setAuthUserData, setUserPhoto, logout} from './../../redux/authReducer';
 class AuthContainer extends React.Component {
 
     render() {
-        return (
-            <Auth {...this.props}/>
-        )
+        return <Auth {...this.props}/>
     }
 }
 
